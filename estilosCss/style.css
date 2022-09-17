@@ -1,0 +1,472 @@
+/*Inicio Espaciamiento de bordes de la pag*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+footer{
+    background-color:  rgba(33, 25, 21, 0.85);
+color:#FFFFFF;
+}
+/*Fin Espaciamiento de bordes de la pag*/
+/*Inicio de Estilos generales*/
+body{
+    font-family: sans-serif;
+    margin: 0;
+}
+
+h1{font-size: 3.5em;}
+h2{font-size: 2.5em;}
+h3{font-size: 2em;}
+h4{font-size: 1.5em;}
+h5{font-size: 1.25em;}
+ul{list-style: none;}
+li{font-size: 1.25em;}
+p{font-size: 1.25em;}
+button{
+    font-family: Abhaya Libre ExtraBold;
+    font-size: 5vw;
+}
+
+/**/
+/*
+.contenedor{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 250px auto auto;
+    grid-template-areas: "encabezado encabezado encabezado"
+                        "nevegador   navegador  navegador"
+                         "cuerpo     cuerpo     cuerpo"
+                         "pieDePag   pieDePag   pieDePag";
+
+}
+*/
+
+/*Fin de estilos generales*/
+/*Inicio Estilos del Header*/
+.container{
+    max-width: 1400px;
+    margin: auto;
+}
+.container .logo-imag{
+justify-content: space-between;
+align-items: flex-start;
+}
+header{
+    display:flex;
+    justify-content: space-between;
+    background-color: rgba(33, 25, 21, 0.85);
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    margin-bottom: 5%;
+    
+}
+
+
+header .logo{
+    margin: 0%;
+    padding: 5px 10px;
+    justify-content: left;
+    
+}
+
+.logo-imag{
+    width: 240px;
+    height: 55px;
+    padding: 1%;
+}
+
+/*
+Header .container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+*/
+/*Inorporando Grid AL header*/
+
+header .container{
+    display: grid;
+    grid-template-columns: 250px auto;
+    grid-template-rows: auto;
+}
+
+header nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 30px;
+    text-align: right;
+    padding-bottom: 0px;
+}
+
+.container ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-items: right;
+}
+
+.container ul .il{
+    padding: 10px;
+}
+header a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    padding: 5px 12px;
+}
+
+header a:hover{
+    color:rgba(219, 111, 29, 0.95);
+}
+
+
+/*Fin del header*/
+/*Inicio seccion presentacion*/
+#Presentacion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 100%;    
+    background-image: linear-gradient(130deg,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)
+    )
+    ,url(..//Banco\ de\ Imagenes/colleagues-giving-fist-bump.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+#Presentacion h1{
+    color: white;
+    font-family:black italic;
+    width: auto;
+    padding: 15px;
+}
+
+#Presentacion h4{
+    background-color: rgba(33, 25, 21, 0.85);
+    color:#FFFFFF;
+    border-radius: 30px;
+    width: auto;
+}
+/*Incorporando Grid*/
+/*
+#Presentacion .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+*/
+#Presentacion .container{
+    display: grid;
+    grid-template-columns: auto;
+}
+
+
+#Presentacion .container button{
+    height: auto;
+    width: auto;
+    
+    border-radius: 30px;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 47px;
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: rgba(219, 111, 29, 0.95);
+    color:#FFFFFF;
+}
+
+/*Finaliza seccion presentacion*/
+/*Inicia seccion Nosotros*/
+
+#Nosotros{
+    text-align: center;
+    padding: auto;
+}
+
+#Nosotros .constainer{
+    display: flex;
+    justify-content: center;
+}
+#Nosoros .texto{
+    width: 33%;
+    text-align: initial;
+    padding: 0px 30px;
+}
+#Nosotros .imag-container{
+    background-image: linear-gradient(130deg,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)
+    )
+    ,url(..//Banco\ de\ Imagenes/pexels-valeria-ushakova-3094211.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    width: 100%;
+
+}
+/*Fin seccion Nosotros*/
+/*Inicio seccion Blog*/
+
+/*Se utiliza grillas en la secci[on del blog*/
+#blog{
+    text-align: center;
+    height: 100%;    
+    background-image: linear-gradient(130deg,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)
+    )
+    ,url(..//Banco\ de\ Imagenes/pexels-jess-bailey-designs-965117.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#blog h2{
+    color: white;
+    margin-top: 0;
+}
+#blog h3{
+    color: white;
+    padding: auto;
+
+}
+
+#blog .container{
+    padding:  150px 12px;
+
+}
+
+#blog p{
+    color: white;
+}
+
+#blog button.articulo{
+    width: 150px;
+    height: 50px;
+    font-size: 40px;
+    border-radius: 30px;
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: rgba(219, 111, 29, 0.95);
+    color:#FFFFFF;
+}
+
+#blog .carta{
+
+}
+
+.carta:nth-child(1){
+    background-image: linear-gradient(130deg,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)
+    )
+    ,url(..//Banco\ de\ Imagenes/pexels-ovan-57750.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.carta:nth-child(2){
+    background-image: linear-gradient(130deg,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)
+    )
+    ,url(..//Banco\ de\ Imagenes/ENTRADA01-6921023.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.carta:nth-child(3){
+    background-image: linear-gradient(130deg,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)
+    )
+    ,url(..//Banco\ de\ Imagenes/Habito-de-escribir-productividad-y-orgnizacion-768x514-7957481.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+/*FIN seccion Blog*/
+/*Inicio seccion Curso*/
+
+#cursos{
+    text-align: center;
+    height: 100%;    
+    background-image: linear-gradient(130deg,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)
+    )
+    ,url(..//Banco\ de\ Imagenes/pexels-cottonbro-4065891.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#cursos h2{
+    color: white;
+    margin-top: 0;
+}
+#cursos h3{
+    color: white;
+    padding: auto;
+
+}
+
+#cursos .container{
+    padding:  150px 12px;
+
+}
+
+#cursos p{
+    color: white;
+}
+
+
+#cursos .curso{
+
+}
+
+.curso:nth-child(1){
+    background-image: linear-gradient(130deg,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)
+    )
+    ,url(..//Banco\ de\ Imagenes/pexels-ovan-57750.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.curso:nth-child(2){
+    background-image: linear-gradient(130deg,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)
+    )
+    ,url(..//Banco\ de\ Imagenes/ENTRADA01-6921023.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.curso:nth-child(3){
+    background-image: linear-gradient(130deg,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)
+    )
+    ,url(..//Banco\ de\ Imagenes/Habito-de-escribir-productividad-y-orgnizacion-768x514-7957481.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}    
+/*Fin seccion Curso*/
+
+/*inicia Seccion Contacto*/
+/*Se aplican grilla para acomodar este sector*/
+#Contacto{
+    background-color: rgba(33, 25, 21, 0.95);
+    background-size: 100%;
+    display: grid;
+    grid-column: auto;
+    
+}
+#Contacto .container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-columns: min-content;
+}
+.formulario{
+    margin: 10%;
+    border-radius: 30px;
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: rgba(219, 111, 29, 0.95);
+    color:#FFFFFF;
+    width: fit-content;
+}
+.pag{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pag ul{
+    display: flex;
+    flex-direction: column;
+    text-justify: left;
+    align-items: center;
+    align-content: center;
+}
+.pag ul.il{
+    align-self: center;
+}
+form{
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 5fr;
+}
+input{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 30px;
+}
+input.registro{
+    background-color:rgba(33, 25, 21, 0.85);
+    color: #FFFFFF;
+    text-decoration: dotted;
+}
+input.registro:hover{
+    background-color: gold;
+}
+.pag a{
+    color: #FFFFFF;
+}
+img.facebook{
+    width: 30px;
+    height: 30px;
+}
+img.instagram{
+    width: 30px;
+    height: 30px;
+}
+img.youtube{
+    width: 30px;
+    height: 30px;
+}
+.RRSS{
+    color: #FFFFFF;
+}
+.RRSS ul{
+    background-color:  rgba(219, 111, 29, 0.95);
+    border-bottom: #FFFFFF;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 1%;
+
+}
+footer{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    
+}

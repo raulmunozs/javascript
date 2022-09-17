@@ -1,0 +1,212 @@
+$colorLetraGeneral: #FFFFFF;
+$colorFondos: rgba(33, 25, 21, 0.85);
+$colorSecundario: rgba(219, 111, 29, 0.95);
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+footer{
+    background-color:  $colorFondos;
+color:$colorLetraGeneral;
+}
+/*Inicia header*/
+html{
+    scroll-behavior: smooth;
+}
+header{
+    background-color:$colorFondos;
+        
+}
+div .color{
+    background-color:  $colorFondos;
+    color:$colorLetraGeneral;
+}
+button.navbar-toggler{
+    background-color: $colorLetraGeneral;
+}
+.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link{
+    color: $colorLetraGeneral;
+}
+a.nav-link{
+    color: $colorLetraGeneral;
+
+}
+a:hover{
+    color:rgba(219, 111, 29, 0.95);
+}
+/*Finaliza header*/
+/*Inicia main*/
+a{
+    text-decoration: none;
+    color: $colorLetraGeneral;
+}
+/*inicia prsentacion*/
+
+body{
+    font-family: sans-serif;
+    
+}
+
+
+button{
+    font-family: Abhaya Libre ExtraBold;
+    font-size: 24px;
+    border-radius: 30px;
+    background-color: rgba(219, 111, 29, 0.95);
+    color:$colorLetraGeneral;
+}
+
+#Presentacion{
+    margin: 0;
+    background-image: linear-gradient(130deg,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)
+    )
+    ,url(..//bancoDeImagenes/colleagues-giving-fist-bump.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+h1{
+    color: $colorLetraGeneral;
+    font-family:black italic;
+}
+h4.col-12.text-center{
+    background-color: $colorFondos;
+    color:$colorLetraGeneral;
+    border-radius: 30px;
+}
+/*finaliza prsentacion*/
+/*Inicia seccion Nosotros*/
+img{
+    height: 100%;
+    width: 100%;
+    
+}
+@mixin flex-column-center-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+div .container .col-4 .col-sm-4 .col-md-4 .col-lg-4 .align-items-center .justify-content-center .my-2{
+    @include flex-column-center-center;
+}
+#Nosotros h2{
+    color:black;
+    font-family:black italic;
+}
+
+/*Inicio blog*/
+
+.encuadre{
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; 
+}
+#blog{
+    background-image: linear-gradient(130deg,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)
+    )
+    ,url(../bancoDeImagenes/pexels-cottonbro-4065891.jpg);
+    @extend .encuadre;
+}
+
+#blog h2{
+    color: #FFFFFF;
+    font-family:black italic;
+}
+
+/*FIN blog*/
+
+/*Inicio Cursos*/
+#cursos{
+    background-image: linear-gradient(130deg,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)
+    )
+    ,url(../bancoDeImagenes/pexels-jess-bailey-designs-965117.jpg);
+    @extend .encuadre;
+}
+
+#cursos h2{
+    color: #FFFFFF;
+    font-family:black italic;
+}
+
+/*FIN Cursos*/
+
+/*Inicio Contacto*/
+
+#Contacto{
+    background-color: rgba(33, 25, 21, 0.95);
+    background-size: 100%;
+}
+
+form.col-12{
+    margin: 10%;
+    border-radius: 30px;
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: rgba(219, 111, 29, 0.95);
+    color:#FFFFFF;
+    width: fit-content;
+}
+
+$formulario:(
+    margen: 10%,
+    radio: 30px,
+    espaciado: 0em,
+    alineado: center,
+    fondo: $colorSecundario,
+    color: #fff,
+    ancho: fit-content
+);
+
+
+form.col-12 .col-sm-4 {
+    margin: map-get($formulario, margen );
+    border-radius: map-get($formulario, radio);
+    letter-spacing: map-get($formulario, espaciado);
+    text-align: map-get($formulario, alineado);
+    background-color: map-get($formulario, $colorSecundario);
+    color: map-get($formulario, color);
+    width: map-get($formulario, ancho );
+}
+
+.miniLogos ul{
+    background-color:  rgba(219, 111, 29, 0.95);
+    border-bottom: #FFFFFF;
+    border-radius: 10px;
+    width: fit-content; 
+    padding: 1%;
+}
+h4{
+    color: #FFFFFF;
+}
+/*Inicio Anidado*/
+ul.flex{
+    display: flex;
+    flex-direction: row;
+        li{
+        padding: 5px;
+        }
+}
+/*Fin Anidado*/
+/*Fin Contacto*/
+
+@media (max-width: 992px) {
+    div.img-fluid{
+        height: 90%;
+        align-items: center;}
+    
+    
+    
+}
+
+
