@@ -29,31 +29,65 @@ const producto3 = new producto(3,"Economia para emprendedores", 300, "Los empren
 //const biblioteca = [producto1, producto2, producto3]
 // console.log(biblioteca)
 //Segunda forma
+let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || []
+console.log(productosEnCarrito)
+
 let estanteria= []
-estanteria.push(producto1, producto2, producto3)
+
+
+//Guardar estanteria en el Storage
+//Revisa si existe en el local y lo trae 
+if(localStorage.getItem("estanteria")){
+    estanteria = JSON.parse(localStorage.getItem("estanteria"))
+}
+else{
+    console.log("Seteando por primera vez el array")
+
+    estanteria.push(producto1, producto2, producto3)
+localStorage.setItem("estanteria", JSON.stringify(estanteria) )
+}
+
 let sectionCursos = document.getElementById("curses")
     console.log(sectionCursos)
+    function catalogo(estanteria){
 estanteria.forEach( (producto) => {
     let nuevoCurso = document.createElement("div")
-    nuevoCurso.innerHTML = `<div class="container-fluid row justify-content-around mt-5">
+    nuevoCurso.innerHTML = `
                     <div id= "${producto.id} class="card col-4 mb-3" style="width: 18rem;">
                         <img src="${producto.imagen}" class="card-img-top pt-2" alt="Bullet Journal, control de ansiedad">
                         <div class="card-body ">
                         <h5 class="card-title">${producto.titulo}</h5>
                         <p class="card-text">${producto.precio}</p>
-                        <a href="#" id= "compra" class="btn btn-primary">Comprar</a>
+                        <a href="#" id= "agregarBtn${producto.id}" class="btn btn-primary">Comprar</a>
                         </div>
-                    </div>
                     </div>`
     sectionCursos.appendChild(nuevoCurso)
+
+    let btnCompra = document.getElementById(`agregarBtn${producto.id}`)
+ console.log(btnCompra)
+btnCompra.addEventListener("click", ()=> { alert("El cuso fue añadido al carrito")})
+    console.log(estanteria)
 })
-   
- let btnCompra = document.getElementsById("comprar")
-  for(let compra of btnCompra){
-  compra.addEventListener("click", ()=>{
-       alert("El cuso fue añadido al carrito")
+}
+catalogo(estanteria);
+
+
+function agregarAlCarrito(estanteria){
+    productosEnCarrito.push(estanteria)
+    console.log(productosEnCarrito)
+    localStorage.setItem("carrito", JSON.stringify(productosEnCarrito))
+    //Alert con sweetAlert
+    Swal.fire({
+        title: "Ha agregado un producto",
+        icon: "success",
+        confirmButtonText : "Acepto",
+        confirmButtonColor : "green",
+        timer: 3000,
+        text: `El curso ${producto.titulo}  ha sido agregado`,
+        
+        
     })
-  }
+}
 
 //Clase STORAGE
 
@@ -96,4 +130,4 @@ function compraTotal(array){
 
     acumulador = array.reduce((acumulador, productoCarrito)=>{
         return acumulador + productoCarrito.precio
-    },0)*/
+    },0)}
