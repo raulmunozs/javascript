@@ -65,9 +65,11 @@ estanteria.forEach( (producto) => {
 
     let btnCompra = document.getElementById(`agregarBtn${producto.id}`)
  console.log(btnCompra)
-btnCompra.addEventListener("click", ()=> { alert("El cuso fue añadido al carrito")})
+btnCompra.addEventListener("click", ()=> { agregarAlCarrito()})
     console.log(estanteria)
+    
 })
+
 }
 catalogo(estanteria);
 
@@ -83,7 +85,7 @@ function agregarAlCarrito(estanteria){
         confirmButtonText : "Acepto",
         confirmButtonColor : "green",
         timer: 3000,
-        text: `El curso ${producto.titulo}  ha sido agregado`,
+        text: `El curso ha sido agregado`,
         
         
     })
