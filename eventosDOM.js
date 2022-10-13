@@ -1,4 +1,8 @@
+//Casturando Fetch
 
+fetch("https://jsonplaceholder.typicode.com/guide/")
+.then((response) => response.json())
+.then((json)=> console.log (json));
 
 //Clase constuctora 
 class producto {
