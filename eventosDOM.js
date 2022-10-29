@@ -30,9 +30,7 @@ const producto3 = new producto(3,"Economia para emprendedores", 300, "Los empren
 
 
 //Dos formas inicializar el array:
-//const biblioteca = [producto1, producto2, producto3]
-// console.log(biblioteca)
-//Segunda forma
+
 let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || []
 console.log(productosEnCarrito)
 
@@ -57,11 +55,11 @@ let sectionCursos = document.getElementById("curses")
 estanteria.forEach( (producto) => {
     let nuevoCurso = document.createElement("div")
     nuevoCurso.innerHTML = `
-                    <div id= "${producto.id} class="card col-4 mb-3" style="width: 18rem;">
+                    <div id= "${producto.id} class= "card col-4 mb-3" style="width: 18rem;">
                         <img src="${producto.imagen}" class="card-img-top pt-2" alt="Bullet Journal, control de ansiedad">
                         <div class="card-body ">
                         <h5 class="card-title">${producto.titulo}</h5>
-                        <p class="card-text">${producto.precio}</p>
+                        <p class="card-text">${producto.precio}$</p>
                         <a href="#" id= "agregarBtn${producto.id}" class="btn btn-primary">Comprar</a>
                         </div>
                     </div>`
@@ -76,6 +74,17 @@ btnCompra.addEventListener("click", ()=> { agregarAlCarrito()})
 
 }
 catalogo(estanteria);
+
+
+
+
+
+
+
+
+
+
+
 
 
 function agregarAlCarrito(estanteria){
@@ -111,7 +120,7 @@ function cargarProductosCarrito(array){
 
     modalBody.innerHTML = ""
     array.forEach((productoCarrito)=>{
-
+       
         modalBody.innerHTML += `
         <div class="card border-primary mb-3" id ="productoCarrito${productoCarrito.id}" style="max-width: 540px;">
             <img class="card-img-top" height="300px" src="assets/${productoCarrito.imagen}" alt="${productoCarrito.titulo}">
@@ -119,7 +128,7 @@ function cargarProductosCarrito(array){
                     <h4 class="card-title">${productoCarrito.titulo}</h4>
                 
                     <p class="card-text">$${productoCarrito.precio}</p> 
-                    <button class= "btn btn-danger" id="botonEliminar"><i class="fas fa-trash-alt"></i></button>
+                    <button class= "btn btn-danger" id="botonEliminar${productoCarrito.id}"><i class="fas fa-trash-alt"></i></button>
             </div>    
         
         
@@ -133,7 +142,72 @@ function cargarProductosCarrito(array){
 
 function compraTotal(array){
     let acumulador = 0
-
+    
     acumulador = array.reduce((acumulador, productoCarrito)=>{
         return acumulador + productoCarrito.precio
-    },0)}
+    },0)
+    
+    acumulador == 0 ? parrafoCompra.innerHTML = `<strong>No hay productos en el carrito</strong>` : parrafoCompra.innerHTML = `El total de su carrito es ${acumulador}`
+}
+
+function finalizarCompra(){
+    //PReguntar si ta seguro
+    Swal.fire({
+        title: 'Está seguro de realizar la compra',
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, seguro',
+        cancelButtonText: 'No, no quiero',
+        confirmButtonColor: 'green',
+        cancelButtonColor: 'red',
+    }).then((result)=>{
+        if(result.isConfirmed){
+            Swal.fire({
+            title: 'Compra realizada',
+            icon: 'success',
+            confirmButtonColor: 'green',
+            text: `Muchas gracias por su compra ha adquirido nuestros productos. `,
+            })
+            //resetear o llevar a cero el array de carrito
+            //Tenemos que researtearlo tanto al array como al localStorage
+            productosEnCarrito =[]
+            localStorage.removeItem("carrito")
+            
+        }else{
+            //Va a entrar cuando ponga
+            Swal.fire({
+                title: 'Compra no realizada',
+                icon: 'info',
+                text: `La compra no ha sido realizada! Atención sus productos siguen en el carrito :D`,
+                confirmButtonColor: 'green',
+                timer:3500
+            })
+        }
+    })
+}
+
+botonFinalizarCompra.addEventListener("click", ()=>{finalizarCompra()})
+btnOcultarCatalogo.onclick = ocultarCatalogo
+botonCarrito.addEventListener("click", ()=>{
+    cargarProductosCarrito(productosEnCarrito)
+})
+
+
+let btnBuscar = document.getElementById("btnBuscar")
+let buscador = document.getElementById("buscador")
+btnBuscar.addEventListener("click", ()=>{
+    event.preventDefault()
+    // console.log("Click")
+    console.log(buscador.value)
+    // let tituloBuscado = estanteria.filter(libro => libro.titulo.toLowerCase() == buscador.value.toLowerCase())
+    
+    // console.log(tituloBuscado)
+    let buscado = estanteria.filter(producto => producto.titulo.toLowerCase().includes(buscador.precio.toLowerCase()) || precio.titulo.toLowerCase().includes(buscador.value.toLowerCase()) )
+    console.log(buscado)
+    if(buscado.length == 0){
+        console.log("No hay coincidencias")
+    }else{
+        //Modificar DOM
+        
+    }
+})
